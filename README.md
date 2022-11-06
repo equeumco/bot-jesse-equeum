@@ -43,3 +43,5 @@ Join our [Discord community](https://discord.gg/J7Dwh3xPVD) to get fresh news, a
 - [⚡️ Website](https://equeum.com/)
 - [🎓 Documentation](https://equeum.gitbook.io/docs/)
 - [💬 Discord community](https://discord.gg/J7Dwh3xPVD)
+- [🤖 Jesse Trade strategy](https://github.com/equeumco/bot-jesse-equeum)
+- [🤖 Freqtrade strategy](https://github.com/equeumco/bot-freqtrade-equeum)
