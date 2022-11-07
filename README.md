@@ -1,6 +1,6 @@
 # Jesse Project Template with Equeum Support
 
-This is template from which you can create your own Jesse project with Equeum support.
+This is template from which you can create your own Jesse project and start using Equeum forecasts.
 
 ## Before you start
 
