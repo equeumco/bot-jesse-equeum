@@ -35,3 +35,5 @@ live-config.py
 routes.py
 .env
 docker/postgres-data/
+storage/logs/backtest-mode/
+storage/logs/exchange-streams.txt
