@@ -51,7 +51,7 @@ class EqueumStrategy(Strategy):
     # # # # # # # # # # # # #   EQUEUM   # # # # # # # # # # # # # #
     ################################################################
     
-    _equeum_token = "<PUT HERE YOUR EQUEUM TOKEN>"
+    _equeum_token = "GET YOUR TOKEN AT HTTPS://APP.EQUEUM.COM"
     
     """
     Equeum forecast for selected symbol
