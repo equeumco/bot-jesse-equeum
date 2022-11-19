@@ -145,11 +145,11 @@ class EqueumStrategy(Strategy):
         ticker = self._equeum_extract_symbol(self.symbol)
         
         # request data to API
-        endpoint = self._equeum_api_endpoint + "history"
+        endpoint = "https://graphql-apis.equeum.com/resources/history"
         
         # TODO: replace with real backtesting dates
         params = {
-            "ticker": f"{ticker}",
+            "r": f"{ticker}",
             'from': 1640995200,
             'to': 1704067200,
             "token": self._equeum_token
@@ -163,6 +163,17 @@ class EqueumStrategy(Strategy):
         # validate response
         if ('status' in parsed_res and parsed_res['status'] == 'error'):
             raise Exception("Equeum Exception -> " + parsed_res['error'])
-        else: self._equeum_history = np.array(parsed_res)
+        else:
+            # transform response
+            history_forecast = []
+            fields = parsed_res['fields']
+            for r in parsed_res['rows']:
+                history_forecast.append({
+                    "time": r['time'],
+                    f"{fields[0]}": r['values'][0],
+                    f"{fields[1]}": r['values'][1],
+                    f"{fields[2]}": r['values'][2]
+                })
+            self._equeum_history = np.array(history_forecast)
         
         self.log(f"equeum: history response: {res.status_code} = {self._equeum_history}")
