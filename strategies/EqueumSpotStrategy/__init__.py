@@ -8,7 +8,7 @@ import jesse.helpers as jh
 import requests
 
 
-class EqueumStrategy(Strategy):
+class EqueumSpotStrategy(Strategy):
         
     def before(self):
         # load equeum signal for current candle
@@ -20,21 +20,16 @@ class EqueumStrategy(Strategy):
     def go_long(self):
         entry = self.price
         # no more then $100 per trade
-        position = min(self.balance, 100)
-        qty = utils.size_to_qty(position, entry)
+        # position = min(self.balance, 100)
+        qty = utils.size_to_qty(self.balance, entry)
         
         self.buy = qty, entry
 
     def should_short(self) -> bool:
-        return self.equeum_trendline == 'down'
+        return False
 
     def go_short(self):
-        entry = self.price
-        # no more then $100 per trade
-        position = min(self.balance, 100)
-        qty = utils.size_to_qty(position, entry)
-        
-        self.sell = qty, entry
+        pass
         
     def update_position(self):
         # trend went down, close long
